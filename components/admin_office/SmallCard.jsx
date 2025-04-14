@@ -6,7 +6,7 @@ export default function SmallCard({data}) {
     const{title,numbers,iconBg,icon: Icon} = data;
 
   return (
-    <div className="rounded-lg shadow-lg bg-slate-700 p-4">
+    <div className="p-4 rounded-lg shadow-lg bg-slate-700">
       <div className="flex space-x-4">
         <div
           className={`w-12 h-12 ${iconBg}

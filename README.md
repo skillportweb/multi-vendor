@@ -38,6 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 
-lucide-react use for icons
-Flowbite for table in project
-mockaroo.com for domi data
+1. lucide-react use for icons
+2. Flowbite for table in project
+3. mockaroo.com for domi data
+4. https://ui.shadcn.com/ for dorpdown compount 

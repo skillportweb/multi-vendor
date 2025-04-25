@@ -42,3 +42,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 2. Flowbite for table in project
 3. mockaroo.com for domi data
 4. https://ui.shadcn.com/ for dorpdown compount 
+5. npm i next-themes for dark mode

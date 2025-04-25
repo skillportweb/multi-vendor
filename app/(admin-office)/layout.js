@@ -11,7 +11,7 @@
 //         {/* Header */}
 //         <Navbar />
 //         {/* main */}
-//         <main className='ml-60 p-8 bg-slate-900 text-slate-50 min-h-screen mt-16'>
+//         <main className='min-h-screen p-8 mt-16 ml-60 bg-slate-900 text-slate-50'>
 //           {children}
 //         </main>
 //       </div>
@@ -29,14 +29,14 @@ export default function Layout({ children }) {
   return (
     <div>
       {/* Fixed Sidebar */}
-      <div className="fixed top-0 left-0 h-full w-60 z-50">
+      <div className="fixed top-0 left-0 z-50 h-full w-60">
         <Sidebar />
       </div>
 
       {/* Main content area with left padding to avoid overlap */}
       <div className="pl-60">
         <Navbar />
-        <main className="p-8 bg-slate-900 text-slate-50 min-h-screen mt-16">
+        <main className="min-h-screen p-8 mt-16 bg-slate-50 text-slate-50 dark:bg-slate-900">
           {children}
         </main>
       </div>

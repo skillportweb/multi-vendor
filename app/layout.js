@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "../styles/main.scss";
-import Providers from "@/components/context/providers";
+import Providers from "@/components/context/Providers";
 
 
 

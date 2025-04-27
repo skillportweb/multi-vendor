@@ -22,23 +22,23 @@ import ThemeSwitcherBtn from "./ThemeSwitcherBtn";
 
 export default function Navbar() {
   return (
-    <div className="fixed top-0 right-0 z-50 flex items-center justify-between h-20 px-8 py-4 bg-slate-800 text-slate-50 left-60">
+    <div className="fixed top-0 right-0 z-50 flex items-center justify-between h-20 px-8 py-4 dark:bg-slate-800 bg-white text-slate-50 left-60 shadow-md">
       {/* icon */}
-      <button>
+      <button className="text-lime-600 dark:text-lime-500">
         <AlignJustify />
       </button>
 
       <div className="flex items-center space-x-3">
         {/* Theme switch */}
-        <ThemeSwitcherBtn/>
+        <ThemeSwitcherBtn />
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button
               type="button"
-              className="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-transparent rounded-lg"
+              className="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-transparent"
             >
-              <Bell className="text-green-600" />
+              <Bell className="text-lime-600 dark:text-lime-500" />
               <span className="sr-only">Notifications</span>
               <div
                 className="absolute inline-flex items-center justify-center
@@ -126,7 +126,6 @@ export default function Navbar() {
               <DropdownMenuSeparator />
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            
           </DropdownMenuContent>
         </DropdownMenu>
 

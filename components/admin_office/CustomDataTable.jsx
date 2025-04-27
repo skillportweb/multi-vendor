@@ -14,11 +14,11 @@ export default function CustomerDataTable() {
   const itemStartIndex = startIndex+1;
   const itemEndIndex = Math.min(startIndex + PAGE_SIZE, data.length);
   return (
-    <div classNameName="">
-      <h2 classNameName="text-xl font-bold mb-4">Recent Order</h2>
+    <div className="mt-4">
+      <h2 className="text-xl font-bold mb-4 text-slate-800 dark:text-slate-100">Recent Order</h2>
       {/* table */}
 
-      <div classNameName="p-8">
+      <div className="">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -109,11 +109,11 @@ export default function CustomerDataTable() {
             <span className="text-xl font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">
               {" "}
               Showing{" "}
-              <span className="font-semibold text-gray-50 dark:text-white">
+              <span className="font-semibold dark:text-slate-50 text-slate-800">
                 {itemStartIndex}-{itemEndIndex}
               </span>{" "}
               of{" "}
-              <span className="font-semibold text-gray-50 dark:text-white">
+              <span className="font-semibold dark:text-slate-50 text-slate-800">
                 {data.length}
               </span>
             </span>
@@ -137,7 +137,7 @@ export default function CustomerDataTable() {
                   disabled={currentPage == index + 1}
                   className={
                     currentPage == index + 1
-                      ? "flex items-center justify-center px-3 h-10 leading-tight text-gray-50 bg-blue-500 border border-blue-300 hover:bg-blue-800 hover:text-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                      ? "flex items-center justify-center px-3 h-10 leading-tight text-gray-50 bg-blue-500 border border-blue-300 hover:bg-blue-800 hover:text-white dark:bg-slate-200 dark:border-slate-300 dark:text-slate-900 dark:hover:bg-slate-300 "
                       : "flex items-center justify-center px-3 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" 
                   }
                 >

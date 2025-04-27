@@ -15,7 +15,7 @@ return null;
 }
 return (
 <button
-className="dark:text-green-600"
+className="dark:text-lime-600 text-lime-600"
 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
 >
 {theme === "light" ? <Moon /> : <Sun/>}

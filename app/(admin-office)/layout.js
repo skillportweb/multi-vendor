@@ -36,7 +36,7 @@ export default function Layout({ children }) {
       {/* Main content area with left padding to avoid overlap */}
       <div className="pl-60">
         <Navbar />
-        <main className="min-h-screen p-8 mt-16 bg-slate-50 text-slate-50 dark:bg-slate-900">
+        <main className="min-h-screen p-8 mt-16 bg-slate-100 text-slate-50 dark:bg-slate-900">
           {children}
         </main>
       </div>

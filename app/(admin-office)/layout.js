@@ -1,42 +1,24 @@
-// import Navbar from '@/components/admin_office/Navbar';
-// import Sidebar from '@/components/admin_office/Sidebar';
-// import React from 'react';
-
-// export default function Layout({ children }) {
-//   return (
-//     <div className='flex'>
-//       {/* sidebar */}
-//       <Sidebar />
-//       <div className='w-full'>
-//         {/* Header */}
-//         <Navbar />
-//         {/* main */}
-//         <main className='min-h-screen p-8 mt-16 ml-60 bg-slate-900 text-slate-50'>
-//           {children}
-//         </main>
-//       </div>
-//       {/* main body */}
-//     </div>
-//   );
-// }
-
-
 import Navbar from '@/components/admin_office/Navbar';
 import Sidebar from '@/components/admin_office/Sidebar';
 import React from 'react';
 
 export default function Layout({ children }) {
   return (
-    <div>
-      {/* Fixed Sidebar */}
-      <div className="fixed top-0 left-0 z-50 h-full w-60">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-50">
+      {/* Sidebar - hidden on small screens */}
+      <div className="fixed top-0 left-0 z-50 hidden h-full w-60 md:block">
         <Sidebar />
       </div>
 
-      {/* Main content area with left padding to avoid overlap */}
-      <div className="pl-60">
-        <Navbar />
-        <main className="min-h-screen p-8 mt-16 bg-slate-100 text-slate-50 dark:bg-slate-900">
+      {/* Main content wrapper with left padding */}
+      <div className="md:pl-60">
+        {/* Fixed Navbar */}
+        <div className="fixed top-0 left-0 right-0 z-40 md:left-60">
+          <Navbar />
+        </div>
+
+        {/* Main content area */}
+        <main className="px-4 pt-16 sm:px-6 lg:px-8 mt-12">
           {children}
         </main>
       </div>

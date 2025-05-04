@@ -1,152 +1,181 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/logo.svg";
-import { ExternalLink, LayoutGrid, Slack, Truck, User, User2, Users, UserSquare2, Warehouse } from "lucide-react";
+import {
+  Boxes,
+  ChevronDown,
+  ChevronRight,
+  ExternalLink,
+  LayoutGrid,
+  LayoutList,
+  LogOut,
+  Monitor,
+  MonitorPlay,
+  ScanSearch,
+  SendToBack,
+  Settings,
+  Slack,
+  Truck,
+  User2,
+  Users,
+  UserSquare2,
+  Warehouse,
+} from "lucide-react";
 
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
+  const pathname = usePathname();
 
   const sidebarLinks = [
     {
-      title:"Customers",
-      icon: User2,
-      href: "/dashboard/customers"
+      title: "Customers",
+      icon: Users,
+      href: "/dashboard/customers",
     },
     {
-      title:"Markets",
+      title: "Markets",
       icon: Warehouse,
-      href: "/dashboard/markets"
+      href: "/dashboard/markets",
     },
     {
-      title:"Farmers",
+      title: "Farmers",
       icon: UserSquare2,
-      href: "/dashboard/farmers"
+      href: "/dashboard/farmers",
     },
     {
-      title:"Orders",
+      title: "Orders",
       icon: Truck,
-      href: "/dashboard/orders"
+      href: "/dashboard/orders",
     },
     {
-      title:"Our Staff",
+      title: "Our Staff",
       icon: User2,
-      href: "/dashboard/staff"
+      href: "/dashboard/staff",
     },
     {
-      title:"Customers",
-      icon: User,
-      href: "/dashboard/customers"
+      title: "Settings",
+      icon: Settings,
+      href: "/dashboard/settings",
     },
     {
-      title:"Settings",
-      icon: LayoutGrid,
-      href: "/dashboard/settings"
-    },
-    {
-      title:"Online Store",
+      title: "Online Store",
       icon: ExternalLink,
-      href: "/dashboard/customers"
+      href: "/dashboard/store",
     },
-  ]
+  ];
+
+  const catalogueLinks = [
+    {
+      title: "Products",
+      icon: Boxes,
+      href: "/dashboard/products",
+    },
+    {
+      title: "Categories",
+      icon: LayoutList,
+      href: "/dashboard/categories",
+    },
+    {
+      title: "Attributes",
+      icon: SendToBack,
+      href: "/dashboard/attributes",
+    },
+    {
+      title: "Coupons",
+      icon: ScanSearch,
+      href: "/dashboard/coupons",
+    },
+    {
+      title: "store Sliders",
+      icon: MonitorPlay,
+      href: "/dashboard/sliders",
+    },
+  ];
+
+  const [openManu, setOpenManu] = useState(false)
 
   return (
-    <div
-      className="dark:bg-slate-700 bg-white shadow-md space-y-6 
-    w-60 h-screen dark:text-slate-50 
-     fixed left-0 top-0  text-slate-800"
-    >
+    <div className="fixed top-0 left-0 w-64 h-screen space-y-6 bg-white shadow-md dark:bg-slate-700 dark:text-slate-50 text-slate-800">
       <Link className="px-6 py-4" href="#">
         <Image src={logo} alt="limifood logo" className="w-32" />
       </Link>
-      <div className="space-y-3 flex flex-col mt-14">
-        {/* <Link
-          href="#"
-          className="flex items-center space-x-3 px-4 py-2 border-l-4 border-green-600"
+      <div className="flex flex-col space-y-3 mt-14">
+        <Link
+          href="/dashboard"
+          className={`flex items-center px-4 py-2 space-x-3 border-l-4 ${
+            pathname === "/dashboard"
+              ? "border-lime-500 text-lime-500"
+              : "border-transparent text-slate-700 dark:text-slate-200 hover:text-green-600"
+          }`}
         >
           <LayoutGrid />
           <span>Dashboard</span>
         </Link>
-        <Link
-          href="#"
-          className="flex items-center space-x-3 px-4 py-2 border-l-4 border-green-600"
-        >
-          <Slack/>
-          <span>Catelogue</span>
-        </Link>
 
-        <Link
-          href="#"
-          className="flex items-center space-x-3 px-4 py-2 border-l-4 border-green-600"
-        >
-          <Users/>
-          <span>Customers</span>
-        </Link>
+        <Collapsible className="px-4 py-2">
+          <CollapsibleTrigger asChild onClick={()=> setOpenManu(!openManu)}>
+            <button className="flex items-center space-x-6 py-2 cursor-pointer">
+              <div className="flex items-center space-x-3">
+                <Slack />
+                <span>Catalogue</span>
+              </div>
+              {openManu?<ChevronRight />:<ChevronDown/>}
+            </button>
+          </CollapsibleTrigger>
 
-        <Link
-          href="#"
-          className="flex items-center space-x-3 px-4 py-2 border-l-4 border-green-600"
-        >
-          <Warehouse/>
-          <span>Markets</span>
-        </Link>
+          <CollapsibleContent className="px-3 pl-6 bg-slate-800 rounded-lg py-3">
+            {catalogueLinks.map((item, i) => {
+              const Icon = item.icon
+              return (
+                <Link
+                  key={i}
+                  href={item.href}
+                  className={`flex items-center py-1 space-x-3  text-sm ${
+                    pathname === item.href
+                      ? "border-lime-500 text-lime-500"
+                      : "border-transparent text-slate-700 dark:text-slate-200 hover:text-green-600"
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span>{item.title}</span>
+                </Link>
+              );
+            })}
+          </CollapsibleContent>
+        </Collapsible>
 
-        <Link
-          href="#"
-          className="flex items-center space-x-3 px-4 py-2 border-l-4 border-green-600"
-        >
-          <UserSquare2 />
-          <span>Farmers</span>
-        </Link>
-        
-        <Link
-          href="#"
-          className="flex items-center space-x-3 px-4 py-2 border-l-4 border-green-600"
-        >
-          <Truck />
-          <span>Orders</span>
-        </Link>
-
-        <Link
-          href="#"
-          className="flex items-center space-x-3 px-4 py-2 border-l-4 border-green-600"
-        >
-          <User2 />
-          <span>Our Staff</span>
-        </Link>
-        
-        <Link
-          href="#"
-          className="flex items-center space-x-3 px-4 py-2 border-l-4 border-green-600"
-        >
-          <LayoutGrid />
-          <span>Settings</span>
-        </Link>
-
-        <Link
-          href="#"
-          className="flex items-center space-x-3 px-4 py-2 border-l-4 border-green-600"
-        >
-          <ExternalLink />
-          <span>Online Store</span>
-        </Link> */}
-
-        {
-          sidebarLinks.map((item,i) =>{
-            const Icon = item.icon
-            return(
-              <Link key={i}
-          href={item.href}
-          className="flex items-center space-x-3 px-4 py-2 border-l-4 border-green-600"
-        >
-          <Icon />
-          <span>{item.title}</span>
-        </Link>
-            )
-          })
-        }
-        
+        {sidebarLinks.map((item, i) => {
+          const Icon = item.icon;
+          return (
+            <Link
+              key={i}
+              href={item.href}
+              className={`flex items-center px-4 py-2 space-x-3 border-l-4 ${
+                item.href === pathname
+                  ? "border-lime-500 text-lime-500"
+                  : "border-transparent text-slate-700 dark:text-slate-200 hover:text-green-600"
+              }`}
+            >
+              <Icon />
+              <span>{item.title}</span>
+            </Link>
+          );
+        })}
+        <div className="px-6 py-2">
+          <button className="flex items-center px-6 py-3 space-x-3 rounded-md bg-lime-600">
+            <LogOut />
+            <span>Logout</span>
+          </button>
+        </div>
       </div>
     </div>
   );

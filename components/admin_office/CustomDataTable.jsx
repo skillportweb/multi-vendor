@@ -10,17 +10,17 @@ export default function CustomerDataTable() {
   const endIndex = startIndex + PAGE_SIZE;
   const currentlyDisplayedData = data.slice(startIndex, endIndex);
   const totalPages = Math.ceil(data.length / PAGE_SIZE);
-  console.log(data);
+  // console.log(data);
   const itemStartIndex = startIndex+1;
   const itemEndIndex = Math.min(startIndex + PAGE_SIZE, data.length);
   return (
     <div className="mt-4">
-      <h2 className="text-xl font-bold mb-4 text-slate-800 dark:text-slate-100">Recent Order</h2>
+      <h2 className="mb-4 text-xl font-bold text-slate-800 dark:text-slate-100">Recent Order</h2>
       {/* table */}
 
       <div className="">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <table className="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" className="p-4">
@@ -103,10 +103,10 @@ export default function CustomerDataTable() {
             </tbody>
           </table>
           <nav
-            className="flex items-center flex-column flex-wrap md:flex-row justify-between p-4"
+            className="flex flex-wrap items-center justify-between p-4 flex-column md:flex-row"
             aria-label="Table navigation"
           >
-            <span className="text-xl font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">
+            <span className="block w-full mb-4 text-xl font-normal text-gray-500 dark:text-gray-400 md:mb-0 md:inline md:w-auto">
               {" "}
               Showing{" "}
               <span className="font-semibold dark:text-slate-50 text-slate-800">
@@ -117,12 +117,12 @@ export default function CustomerDataTable() {
                 {data.length}
               </span>
             </span>
-            <ul className="inline-flex -space-x-px rtl:space-x-reverse text-sm h-14">
+            <ul className="inline-flex -space-x-px text-sm rtl:space-x-reverse h-14">
               <li>
                 <button 
                    onClick={()=>setCurrentPage(currentPage-1)}
                    disabled = {currentPage==1}
-                  className="flex items-center justify-center px-3 h-10 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="flex items-center justify-center h-10 px-3 leading-tight text-gray-500 bg-white border border-gray-300 ms-0 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   Previous
                 </button>
@@ -152,7 +152,7 @@ export default function CustomerDataTable() {
                 <button
                   onClick={() => setCurrentPage(currentPage + 1)}
                   disabled={currentPage == totalPages}
-                  className="flex items-center justify-center px-3 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="flex items-center justify-center h-10 px-3 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   Next
                 </button>

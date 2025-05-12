@@ -104,7 +104,7 @@ export default function Sidebar() {
   const [openManu, setOpenManu] = useState(false)
 
   return (
-    <div className="fixed top-0 left-0 w-64 h-screen space-y-6 bg-white shadow-md dark:bg-slate-700 dark:text-slate-50 text-slate-800">
+    <div className="fixed top-0 left-0 hidden w-64 h-screen space-y-6 bg-white shadow-md dark:bg-slate-700 dark:text-slate-50 text-slate-800 sm:block">
       <Link className="px-6 py-4" href="#">
         <Image src={logo} alt="limifood logo" className="w-32" />
       </Link>
@@ -123,7 +123,7 @@ export default function Sidebar() {
 
         <Collapsible className="px-4 py-2">
           <CollapsibleTrigger asChild onClick={()=> setOpenManu(!openManu)}>
-            <button className="flex items-center space-x-6 py-2 cursor-pointer">
+            <button className="flex items-center py-2 space-x-6 cursor-pointer">
               <div className="flex items-center space-x-3">
                 <Slack />
                 <span>Catalogue</span>
@@ -132,7 +132,7 @@ export default function Sidebar() {
             </button>
           </CollapsibleTrigger>
 
-          <CollapsibleContent className="px-3 pl-6 bg-slate-800 rounded-lg py-3">
+          <CollapsibleContent className="px-3 py-3 pl-6 rounded-lg bg-slate-800">
             {catalogueLinks.map((item, i) => {
               const Icon = item.icon
               return (
